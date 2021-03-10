@@ -2,7 +2,7 @@ import "./grid-stories.less"
 
 export default { title: 'Grid/Grid' };
 
-export const headings = () => `
+export const grid = () => `
 <section class="demo-grid body-container">
 <pre>
 value         |0px     512px    600px    900px    1280px   1456px
@@ -91,6 +91,14 @@ range         |   xs   |   sm   |   md   |   lg   |   xl
       </article>
    </div>
 </section>
+<div class="grid-breakpoints container-content">
+   <div class="xs">.xs</div>
+   <div class="sm">.sm</div>
+   <div class="md">.md</div>
+   <div class="lg">.lg</div>
+   <div class="xl">.xl</div>
+</div>
+
 `;
 
 
