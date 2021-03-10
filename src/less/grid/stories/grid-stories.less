@@ -28,11 +28,22 @@
 
 
 
-  &__col.is-2-in-4-wrap {
-    .grid-col(@md: 8);
+  &__col.is-1-in-4-wrap {
+    .grid-col(@md: 1, @cols: 4);
     span {
       color: yellow;
     }
+  }
+
+  &__col.is-3-in-4-wrap {
+    .grid-col(@md: 3, @cols: 4);
+    span {
+      color: yellow;
+    }
+  }
+
+  &__col.is-4-wrap-xs-8 {
+    .grid-col(@xs: 8, @lg: 4);
   }
 
   &__col.is-4-wrap {
