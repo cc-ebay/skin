@@ -41,12 +41,12 @@
     flex-direction: @direction;
   }
 
-  margin-left: (@grid-gutter-x / 2) * -1;
-  margin-right: (@grid-gutter-x / 2) * -1;
+  margin-left: (@grid-gutter-x / 2)  / -2;
+  margin-right: (@grid-gutter-x / 2) / -2 ;
 
   @media (min-width:@mq-sm-end) {
-    margin-left: @grid-gutter-x * -1;
-    margin-right: @grid-gutter-x * -1;
+    margin-left: @grid-gutter-x / -2;
+    margin-right: @grid-gutter-x / -2;
   }
 
   & > * {
@@ -59,14 +59,16 @@
     width: 100%;
     max-width: 100%; // Prevent columns from breaking out the grid
 
-    margin-left: (@grid-gutter-x / 2) ;
+    padding-left: (@grid-gutter-x / 2) / 2;
+    padding-right: (@grid-gutter-x / 2) / 2;
 
     @media (min-width:@mq-sm-end) {
-      margin-left: @grid-gutter-x;
+      padding-left: @grid-gutter-x / 2;
+      padding-right: @grid-gutter-x / 2;
     }
 
     & when not (@gutter-y = false) {
-      margin-top: @gutter-y;
+      padding-top: @gutter-y;
     }
   } 
 }
@@ -96,63 +98,39 @@
   //flex: 1 1 auto;
 
  flex: 0 0 auto;
+  width: 100%;
 
   & when not (@xs = -1) {
-    @xs-width: ~"calc(" @xs / @cols-small ~"* (100% - " @grid-gutter-x / 2~") -"  @grid-gutter-x / 2~")";
-    flex-basis: @xs-width;
-    width: @xs-width;
-    max-width: @xs-width;
-
-    & when (@md = -1) {
-      @media (min-width:@mq-sm-end) {
-        @md-width: ~"calc(" 2 * @xs / @cols ~"* (100% - " @grid-gutter-x ~") -"  @grid-gutter-x ~")";
-        flex-basis:@md-width;
-        width: @md-width;
-        max-width: @md-width;
-      }
-    }
+    width: 100% / @grid-number-cols * @xs;
   }
+
   & when not (@sm = -1) {
-    @media (min-width: @mq-sm-end) {
-      @sm-width: ~"calc("  @sm / @cols-small ~"* (100% - " @grid-gutter-x / 2 ~") -"  @grid-gutter-x / 2 ~")";
-      flex-basis: @sm-width;
-      width: @sm-width;
-      max-width:@sm-width;
+    @media (min-width:@mq-xs-end) {
+      width: 100% / @grid-number-cols *  @sm;
     }
   }
 
   & when not (@md = -1) {
     @media (min-width:@mq-sm-end) {
-        @md-width: ~"calc(" @md / @cols ~"* (100% - " @grid-gutter-x ~") -"  @grid-gutter-x ~")";
-        flex-basis:@md-width;
-        width: @md-width;
-        max-width: @md-width;
+      width: 100% / @grid-number-cols *  @md;
     }
   }
 
   & when not (@lg = -1) {
-    @media (min-width: @mq-lg-end) {
-      @lg-width: ~"calc("  @lg / @cols ~"* (100% - " @grid-gutter-x ~") -"  @grid-gutter-x ~")";
-      flex-basis: @lg-width;
-      width: @lg-width;
-      max-width:@lg-width;
+    @media (min-width:@mq-md-end) {
+      width: 100% / @grid-number-cols *  @lg;
     }
   }
 
   & when not (@xl = -1) {
-    @media (min-width: @mq-xl-end) {
-      @xl-width: ~"calc("  @xl / @cols ~"* (100% - " @grid-gutter-x ~") -"  @grid-gutter-x ~")";
-      flex-basis: @xl-width;
-      width: @xl-width;
-      max-width:@xl-width;
+    @media (min-width:@mq-lg-end) {
+      width: 100% / @grid-number-cols *  @xl;
     }
   }
+
   & when not (@xl2 = -1) {
-    @media (min-width: @mq-xl2-end) {
-      @xl2-width: ~"calc("  @xl2 / @cols ~"* (100% - " @grid-gutter-x ~") -"  @grid-gutter-x ~")";
-      flex-basis: @xl2-width;
-      width: @xl2-width;
-      max-width:@xl2-width;
+    @media (min-width:@mq-xl-end) {
+      width: 100% / @grid-number-cols *  @xl2;
     }
   }
 }

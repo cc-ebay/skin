@@ -56,36 +56,36 @@ range         |   xs   |   sm   |   md   |   lg   |   xl
    </header>
    <div class="demo-grid__row demo-grid__outer-row">
       <article class="demo-grid__col is-4-wrap">
-         <div class="demo-grid__block"><span>col 4 wrap</span></div>
+         <div class="demo-grid__block"><span>col(@md: 8, @lg: 4)</span></div>
       </article>
       <article class="demo-grid__col is-4-wrap">
          <div class="demo-grid__block">
-            <span>col 4 wrap</span>
+            <span>col(@md: 8, @lg: 4)</span>
             <div class="demo-grid__row">
                <article class="demo-grid__col is-2-in-4-wrap">
-                  <div class="demo-grid__block"><span>col 2</span></div>
+                  <div class="demo-grid__block"><span>col(@md: 8)</span></div>
                </article>
                <article class="demo-grid__col is-2-in-4-wrap">
-                  <div class="demo-grid__block"><span>col 2</span></div>
+                  <div class="demo-grid__block"><span>col(@md: 8)</span></div>
                </article>
             </div>
          </div>
       </article>
       <article class="demo-grid__col is-4-wrap">
-         <div class="demo-grid__block"><span>col 4 wrap</span></div>
+         <div class="demo-grid__block"><span>col(@md: 8, @lg: 4)</span></div>
       </article>
       <article class="demo-grid__col is-4-wrap">
-         <div class="demo-grid__block"><span>col 4 wrap</span></div>
+         <div class="demo-grid__block"><span>col(@md: 8, @lg: 4)</span></div>
       </article>
    </div>
    <div class="demo-grid__row demo-grid__outer-row">
       <article class="demo-grid__col is-16">
          <div class="demo-grid__row">
             <article class="demo-grid__col is-4-wrap">
-               <div class="demo-grid__block"><span>col 4  wrap</span></div>
+               <div class="demo-grid__block"><span>col(@md: 8, @lg: 4)</span></div>
             </article>
             <article class="demo-grid__col is-12-wrap">
-               <div class="demo-grid__block"><span>col 12 wrap</span></div>
+               <div class="demo-grid__block"><span>col(@md: 8, @lg: 12)</span></div>
             </article>
          </div>
       </article>
