@@ -11,7 +11,7 @@ screen width  |--------|--------|--------|--------|--------|-------->
 range         |   xs   |   sm   |   md   |   lg   |   xl
 </pre>
    <header class="demo-grid__header">
-      <h2 class="demo-grid__title">Demo Grid</h2>
+      <h2 class="demo-grid__title">Demo Grid (no collapse)</h2>
    </header>
    <div class="demo-grid__row demo-grid__outer-row">
       <article class="demo-grid__col is-4">
@@ -52,7 +52,7 @@ range         |   xs   |   sm   |   md   |   lg   |   xl
 
 
 <header class="demo-grid__header">
-      <h2 class="demo-grid__title">Demo Grid</h2>
+      <h2 class="demo-grid__title">Demo Grid (collapsable)</h2>
    </header>
    <div class="demo-grid__row demo-grid__outer-row">
       <article class="demo-grid__col is-4-wrap">
