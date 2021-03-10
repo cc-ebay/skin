@@ -101,36 +101,36 @@
   width: 100%;
 
   & when not (@xs = -1) {
-    width: 100% / @grid-number-cols * @xs;
+    width: 100% / @cols * @xs;
   }
 
   & when not (@sm = -1) {
     @media (min-width:@mq-xs-end) {
-      width: 100% / @grid-number-cols *  @sm;
+      width: 100% / @cols *  @sm;
     }
   }
 
   & when not (@md = -1) {
     @media (min-width:@mq-sm-end) {
-      width: 100% / @grid-number-cols *  @md;
+      width: 100% / @cols *  @md;
     }
   }
 
   & when not (@lg = -1) {
     @media (min-width:@mq-md-end) {
-      width: 100% / @grid-number-cols *  @lg;
+      width: 100% / @cols *  @lg;
     }
   }
 
   & when not (@xl = -1) {
     @media (min-width:@mq-lg-end) {
-      width: 100% / @grid-number-cols *  @xl;
+      width: 100% / @cols *  @xl;
     }
   }
 
   & when not (@xl2 = -1) {
     @media (min-width:@mq-xl-end) {
-      width: 100% / @grid-number-cols *  @xl2;
+      width: 100% / @cols *  @xl2;
     }
   }
 }
