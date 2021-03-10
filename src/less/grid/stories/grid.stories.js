@@ -3,7 +3,7 @@ import "./grid-stories.less"
 export default { title: 'Grid/Grid' };
 
 export const headings = () => `
-<section class="container-content">
+<section class="demo-grid body-container">
 <pre>
 value         |0px     512px    600px    900px    1280px   1456px
 key           |xs      sm       md       lg       xl       xl2
