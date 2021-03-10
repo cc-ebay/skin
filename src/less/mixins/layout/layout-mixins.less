@@ -1,5 +1,27 @@
+@import "../grid/grid-mixins.less";
+
 .flex-items-centered(@display: flex) {
     align-items: center;
     display: @display;
     justify-content: center;
+}
+
+// Container
+@grid-max-width: @mq-lg-end;
+
+// Container for content. Ensure that the content is properly centered
+// with proper padding (outer gutter) on desktop and mobile
+.make-container() {
+  position: relative;
+  box-sizing: border-box;
+
+  width: 100%;
+  max-width: @grid-max-width;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  // According to the playbook in both smaller and larger grid the outer gutter is 16px
+  padding-left: @grid-base;
+  padding-right: @grid-base;
 }

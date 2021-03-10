@@ -1,3 +1,5 @@
+@import "../../mixins/layout/layout-mixins.less";
+
 body {
     .customBackgroundColorProperty(color-background-default);
     .customColorProperty(color-text-default);
@@ -26,4 +28,12 @@ a {
     &:hover {
         .customColorProperty(color-link-hover);
     }
+}
+
+
+// Every element on the page MUST be inside one this container. 
+// You can have more than one that stack on each other. This may be necessary
+// If we want the background to be differnt for differnt sectioncs 
+.body-container {
+  .make-container();
 }
