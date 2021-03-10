@@ -1,0 +1,158 @@
+@import "../../variables/base/breakingpoint-variables.less";
+
+@grid-number-cols: 16;
+
+@grid-base: 16px;
+
+@grid-gutter-x: @grid-base;
+@grid-gutter-y: @grid-base;
+
+//----------------------------------------------
+//  Flex Row
+//  A helper to create flex rows
+//
+//  @param  { string | optionsl } @align - vert alignment
+//  @param  { string | optionsl } @justify - horx positioning
+//  @param  { string | optionsl } @wrap - wrap / no-wrap
+//  @param  { string | optionsl } @grid-gutter-x - Horizontal padding of direct children flex cols
+//----------------------------------------------
+.make-grid-row(
+  @align:  -1;
+  @justify: -1;
+  @direction:  -1;
+  @wrap: nowrap;
+  @gutter-y: @grid-gutter-y;
+) {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex: 1;
+
+  & when not (@gutter-y = false) {
+    margin-top: @gutter-y * -1;
+  }
+  & when not (@align = -1) {
+    align-items: @align;
+  }
+  & when not (@justify = -1) {
+    justify-content: @justify;
+  }
+  & when not (@direction = -1) {
+    flex-direction: @direction;
+  }
+
+  margin-left: (@grid-gutter-x / 2) * -1;
+  margin-right: (@grid-gutter-x / 2) * -1;
+
+  @media (min-width:@mq-sm-end) {
+    margin-left: @grid-gutter-x * -1;
+    margin-right: @grid-gutter-x * -1;
+  }
+
+  & > * {
+    box-sizing: border-box;
+
+    // Prevent columns from becoming too narrow when at smaller grid tiers by
+    // always setting `width: 100%;`. This works because we set the width
+    // later on to override this initial width.
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%; // Prevent columns from breaking out the grid
+
+    margin-left: (@grid-gutter-x / 2) ;
+
+    @media (min-width:@mq-sm-end) {
+      margin-left: @grid-gutter-x;
+    }
+
+    & when not (@gutter-y = false) {
+      margin-top: @gutter-y;
+    }
+  } 
+}
+
+//----------------------------------------------
+//  Flex Column
+//  A helper to output cross browser requirements for
+//  columns inside a flexbox parent. flex-basis isn't
+//  enough in all cases.
+//
+//  @param @xs, @sm, @md, @lg, @xl - number of column spans at breakpoints
+//  Note: @xs, @sm uses @cols-small since the playbook has a smaller grid up to 600px
+//----------------------------------------------
+.grid-col(
+  @xs: -1;
+  @sm: -1;
+  @md: -1;
+  @lg: -1;
+  @xl: -1;
+  @xl2:-1;
+  @cols: @grid-number-cols
+) {
+  box-sizing: border-box;
+  @cols-small: @cols / 2;
+
+
+  //flex: 1 1 auto;
+
+ flex: 0 0 auto;
+
+  & when not (@xs = -1) {
+    @xs-width: ~"calc(" @xs / @cols-small ~"* (100% - " @grid-gutter-x / 2~") -"  @grid-gutter-x / 2~")";
+    flex-basis: @xs-width;
+    width: @xs-width;
+    max-width: @xs-width;
+
+    & when (@md = -1) {
+      @media (min-width:@mq-sm-end) {
+        @md-width: ~"calc(" 2 * @xs / @cols ~"* (100% - " @grid-gutter-x ~") -"  @grid-gutter-x ~")";
+        flex-basis:@md-width;
+        width: @md-width;
+        max-width: @md-width;
+      }
+    }
+  }
+  & when not (@sm = -1) {
+    @media (min-width: @mq-sm-end) {
+      @sm-width: ~"calc("  @sm / @cols-small ~"* (100% - " @grid-gutter-x / 2 ~") -"  @grid-gutter-x / 2 ~")";
+      flex-basis: @sm-width;
+      width: @sm-width;
+      max-width:@sm-width;
+    }
+  }
+
+  & when not (@md = -1) {
+    @media (min-width:@mq-sm-end) {
+        @md-width: ~"calc(" @md / @cols ~"* (100% - " @grid-gutter-x ~") -"  @grid-gutter-x ~")";
+        flex-basis:@md-width;
+        width: @md-width;
+        max-width: @md-width;
+    }
+  }
+
+  & when not (@lg = -1) {
+    @media (min-width: @mq-lg-end) {
+      @lg-width: ~"calc("  @lg / @cols ~"* (100% - " @grid-gutter-x ~") -"  @grid-gutter-x ~")";
+      flex-basis: @lg-width;
+      width: @lg-width;
+      max-width:@lg-width;
+    }
+  }
+
+  & when not (@xl = -1) {
+    @media (min-width: @mq-xl-end) {
+      @xl-width: ~"calc("  @xl / @cols ~"* (100% - " @grid-gutter-x ~") -"  @grid-gutter-x ~")";
+      flex-basis: @xl-width;
+      width: @xl-width;
+      max-width:@xl-width;
+    }
+  }
+  & when not (@xl2 = -1) {
+    @media (min-width: @mq-xl2-end) {
+      @xl2-width: ~"calc("  @xl2 / @cols ~"* (100% - " @grid-gutter-x ~") -"  @grid-gutter-x ~")";
+      flex-basis: @xl2-width;
+      width: @xl2-width;
+      max-width:@xl2-width;
+    }
+  }
+}
